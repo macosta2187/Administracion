@@ -5,9 +5,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="style_menu.css" />
-    <title>Generic System</title>
+    <title>ADN</title>
   </head>
   <body> 
+  <header>
+      <div class="logo">ADN</div>
+  </header>
+
   @include("encabezado")
   </body>
 </html>

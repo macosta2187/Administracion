@@ -13,18 +13,25 @@ body {
   font-family: sans-serif;
   background-image: url("fondo.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
 
  
  
+header {
+  background-color: brown;
+  padding: 10px;
+  color: white;
 }
+
+/* Estilo del logo */
 .logo {
-  color: var(--color-white);
-  font-size: 30px;
+  font-size: 20px;
+  font-weight: bold;
 }
-.logo span {
-  color: var(--color-primary);
-}
+
+
+
+
 .menu-bar {
   background-color: var(--color-black);
   height: 80px;

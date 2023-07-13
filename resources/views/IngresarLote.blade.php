@@ -62,28 +62,12 @@ input[type="submit"]:hover {
 
  </style>
 
-  <h1>Ingrese los datos requeridos para Almacenes</h1>
-  <form action="/IngresarAlmacen" method="POST">
+  <h1>Ingrese Lote</h1>
+  <form action="/IngresarLote" method="POST">
   @csrf 
   
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required><br><br>
-
-    <label for="calle">Calle:</label>
-    <input type="text" id="calle" name="calle" required><br><br>
-
-    <label for="numero">Numero:</label>
-    <input type="text" id="numero" name="numero" required><br><br>
-
-    <label for="ciudad">Ciudad:</label>
-    <input type="text" id="ciudad" name="ciudad" required><br><br>
-
-    <label for="latitud">Latitud:</label>
-    <input type="text" id="latitud" name="latitud" required><br><br>
-
-    <label for="longitud">Longitud:</label>
-    <input type="text" id="longitud" name="longitud" required><br><br>
-
+    <label for="lote">Lote:</label>
+    <input type="text" id="lote" name="lote" required><br><br>
     <input type="submit" value="Guardar">
   </form>
 </body>

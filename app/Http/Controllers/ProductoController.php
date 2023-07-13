@@ -42,7 +42,7 @@ public function actualizarProducto(Request $request, $id)
           $producto->id_lote = $request->input('id_lote');  
           $producto->save();
           
-          return view('/');
+          return view('inicio');
       }
 
 
@@ -51,7 +51,7 @@ public function EliminarProducto($id)
         $producto = Producto::findOrFail($id);
         $producto->delete();
 
-        return view('/');
+        return view('inicio');
     }
     
 

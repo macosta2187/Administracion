@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Almacen;
+use App\Models\Producto;
+use App\Models\Lote;
 use App\Http\Controllers\AlmacenController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\LoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +45,13 @@ Route::get('/EliminarProducto/{id}',[ProductoController::class,"EliminarProducto
 Route::get('/EditarProducto/{id}/editar', [ProductoController::class, 'editarProducto'])->name('producto.editar');
 Route::post('/producto/{id}/actualizar', [ProductoController::class, 'actualizarProducto'])->name('producto.actualizar');
 
+/****************************************************** */
+Route::get("/IngresarLote",function () {
+    return view('IngresarLote');
+});
+Route::post("/IngresarLote",[LoteController::class,"IngresarLote"]);
+/****************************************************** */
+Route::get("/ListarLote",[LoteController::class,"ListarLote"]);
+Route::get('/EliminarLote/{id}',[LoteController::class,"EliminarLote"])->name('lote.eliminar');
+Route::get('/EditarLote/{id}/editar', [LoteController::class, 'editarLote'])->name('lote.editar');
+Route::post('/lote/{id}/actualizar', [LoteController::class, 'actualizarLote'])->name('lote.actualizar');

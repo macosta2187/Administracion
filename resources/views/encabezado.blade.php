@@ -31,22 +31,16 @@
          <i class="fas fa-calendar"></i>
         <span>Ver Producto</span>
       </a>
-      <a href="/listarCamionero">
+      <a href="/IngresarLote">
       <i class="fas fa-stream"></i>
-        <span>Ver Camioneros</span>
+        <span>Ingreso Lote</span>
       </a>
-      <a href="/producto">
-        <i class="fas fa-sliders-h"></i>
-        <span>Productos</span>
       </a>
-      <a href="/listarProductos">
+      <a href="/IngresarLote">
       <i class="fas fa-stream"></i>
-        <span>Ver Productos</span>
+        <span>Alta usuarios</span>
       </a>
-      <a href="#">
-        <i class="fas fa-sliders-h"></i>
-        <span>Crear Envio</span>
-      </a>
+     
     </div>
 
   </body>
