@@ -7,6 +7,15 @@ use App\Models\Lote;
 use App\Http\Controllers\AlmacenController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\LoteController;
+use App\Http\Controllers\VerifyLogin;
+use App\Http\Middleware;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
+use Illuminate\Auth\Middleware\Authenticate;
+use Illuminate\Http\Request;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +28,29 @@ use App\Http\Controllers\LoteController;
 |
 */
 
+/*
 Route::get('/', function () {
-    return view('inicio');
+    return view('welcome');                               
 });
+
+*/
+
+
+Route::get('/login', function () {
+    // Lógica para mostrar el formulario de inicio de sesión
+    return view('login');
+})->name('login');
+
+
 
 /****************************************************** */
 Route::get("/IngresarAlmacen",function () {
     return view('IngresarAlmacen');
-});
-Route::post("/IngresarAlmacen",[AlmacenController::class,"IngresarAlmacen"]);
+})->middleware(Authenticate::class);
+
+
+
+Route::post("/IngresarAlmacen",[AlmacenController::class,"IngresarAlmacen"])->middleware(Authenticate::class);
 /****************************************************** */
 Route::get("/ListarAlmacen",[AlmacenController::class,"ListarAlmacen"]);
 Route::get('/EliminarAlmacen/{id}',[AlmacenController::class,"EliminarAlmacen"])->name('almacen.eliminar');
@@ -46,12 +69,36 @@ Route::get('/EditarProducto/{id}/editar', [ProductoController::class, 'editarPro
 Route::post('/producto/{id}/actualizar', [ProductoController::class, 'actualizarProducto'])->name('producto.actualizar');
 
 /****************************************************** */
+
+
+
+  
+    Route::post("/IngresarLote",[LoteController::class,"IngresarLote"])->middleware(Autenticacion::class);;
+    /****************************************************** */
+    Route::get("/ListarLote",[LoteController::class,"ListarLote"]);
+    Route::get('/EliminarLote/{id}',[LoteController::class,"EliminarLote"])->name('lote.eliminar');
+    Route::get('/EditarLote/{id}/editar', [LoteController::class, 'editarLote'])->name('lote.editar');
+    Route::post('/lote/{id}/actualizar', [LoteController::class, 'actualizarLote'])->name('lote.actualizar');
+
+
+
+
+
 Route::get("/IngresarLote",function () {
     return view('IngresarLote');
 });
-Route::post("/IngresarLote",[LoteController::class,"IngresarLote"]);
-/****************************************************** */
-Route::get("/ListarLote",[LoteController::class,"ListarLote"]);
-Route::get('/EliminarLote/{id}',[LoteController::class,"EliminarLote"])->name('lote.eliminar');
-Route::get('/EditarLote/{id}/editar', [LoteController::class, 'editarLote'])->name('lote.editar');
-Route::post('/lote/{id}/actualizar', [LoteController::class, 'actualizarLote'])->name('lote.actualizar');
+
+Route::get('/Registro', function () {
+    return view('Registro');
+});
+
+
+Route::get('/error', function () {
+    return view('error');
+});
+
+Route::post("/registrar",[UserController::class,"Registro"]);
+
+Route::get('/inicio', function () {
+    return view('login');
+})->middleware(Authenticate::class);

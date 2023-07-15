@@ -10,6 +10,7 @@
   <body> 
   <header>
       <div class="logo">ADN</div>
+      @csrf 
   </header>
 
   @include("encabezado")

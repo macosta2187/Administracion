@@ -36,7 +36,7 @@
         <span>Ingreso Lote</span>
       </a>
       </a>
-      <a href="/IngresarLote">
+      <a href="/Registro">
       <i class="fas fa-stream"></i>
         <span>Alta usuarios</span>
       </a>
