@@ -9,8 +9,6 @@
 </head>
 <body>
 
-
-
 @csrf
  @method('DELETE')
 <style>

@@ -60,10 +60,7 @@ input[type="submit"]:hover {
     background-color:  #3b3f3b;
 }
 
- </style>
-
-
-    
+ </style>    
     <form action="{{ route('producto.actualizar', ['id' => $producto->id]) }}" method="POST">
         @csrf
 

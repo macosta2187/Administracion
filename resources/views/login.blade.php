@@ -43,12 +43,12 @@
           if (response.error === "Credenciales incorrectas") {
             console.log(xhr.responseText);
             alert('Credenciales incorrectas. No se puede ingresar a la página.');
-          } else {
-            console.log(xhr.responseText);
-            alert('Login exitoso');
-            var token = xhr.responseText; // Obtén el token de la respuesta
-            guardarToken(token); // Guarda el token en localStorage o en una cookie
-            redirigirConToken(token); // Redirige a la página 'inicio' con el token como parámetro de consulta
+          } else {                     
+            token = JSON.parse(xhr.responseText);         
+            token = token['Authorization'];      
+          
+            guardarToken(token); 
+            redirigirConToken(token); 
           }
         } else {
           console.log(xhr.responseText);
@@ -62,14 +62,12 @@
   });
 
   function guardarToken(token) {
-    // Guarda el token en localStorage o en una cookie
-    // Por ejemplo, usando localStorage:
     localStorage.setItem('token', token);
   }
 
   function redirigirConToken(token) {
-    // Redirige a la página 'inicio' con el token como parámetro de consulta
-    window.location.href = 'http://127.0.0.1:8000/inicio'(token);
+    window.location.href = 'http://127.0.0.1:8000/inicio/?' + encodeURIComponent(token);
+    alert(token);
   }
   </script>
 </body>

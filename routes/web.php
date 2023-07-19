@@ -12,32 +12,14 @@ use App\Http\Middleware;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
-use Illuminate\Auth\Middleware\Authenticate;
+use App\Http\Middleware\Autenticacion;
 use Illuminate\Http\Request;
 
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-/*
-Route::get('/', function () {
-    return view('welcome');                               
-});
-
-*/
 
 
-Route::get('/login', function () {
-    // Lógica para mostrar el formulario de inicio de sesión
+Route::get('/', function () {  
     return view('login');
 })->name('login');
 
@@ -46,16 +28,16 @@ Route::get('/login', function () {
 /****************************************************** */
 Route::get("/IngresarAlmacen",function () {
     return view('IngresarAlmacen');
-})->middleware(Authenticate::class);
+});
 
 
 
-Route::post("/IngresarAlmacen",[AlmacenController::class,"IngresarAlmacen"])->middleware(Authenticate::class);
+//Route::post("/IngresarAlmacen",[AlmacenController::class,"IngresarAlmacen"]);
 /****************************************************** */
-Route::get("/ListarAlmacen",[AlmacenController::class,"ListarAlmacen"]);
-Route::get('/EliminarAlmacen/{id}',[AlmacenController::class,"EliminarAlmacen"])->name('almacen.eliminar');
-Route::get('/EditarAlmacen/{id}/editar', [AlmacenController::class, 'editarAlmacen'])->name('almacenes.editar');
-Route::post('/almacenes/{id}/actualizar', [AlmacenController::class, 'actualizarAlmacen'])->name('almacenes.actualizar');
+Route::get("/ListarAlmacen",[AlmacenController::class,"ListarAlmacen"])->middleware(Autenticacion::class);
+//Route::get('/EliminarAlmacen/{id}',[AlmacenController::class,"EliminarAlmacen"])->name('almacen.eliminar');
+//Route::get('/EditarAlmacen/{id}/editar', [AlmacenController::class, 'editarAlmacen'])->name('almacenes.editar');
+//Route::post('/almacenes/{id}/actualizar', [AlmacenController::class, 'actualizarAlmacen'])->name('almacenes.actualizar');
 
 /****************************************************** */
 Route::get("/IngresarProducto",function () {
@@ -73,7 +55,7 @@ Route::post('/producto/{id}/actualizar', [ProductoController::class, 'actualizar
 
 
   
-    Route::post("/IngresarLote",[LoteController::class,"IngresarLote"])->middleware(Autenticacion::class);;
+    Route::post("/IngresarLote",[LoteController::class,"IngresarLote"])->middleware(Autenticacion::class);
     /****************************************************** */
     Route::get("/ListarLote",[LoteController::class,"ListarLote"]);
     Route::get('/EliminarLote/{id}',[LoteController::class,"EliminarLote"])->name('lote.eliminar');
@@ -99,6 +81,13 @@ Route::get('/error', function () {
 
 Route::post("/registrar",[UserController::class,"Registro"]);
 
+
+
+
 Route::get('/inicio', function () {
-    return view('login');
-})->middleware(Authenticate::class);
+    return view('inicio');
+});
+
+Route::get('/welcome', function () {
+    return view('welcome');
+});

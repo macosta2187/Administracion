@@ -61,12 +61,9 @@ input[type="submit"]:hover {
 }
 
  </style>
-
-
     
     <form action="{{ route('almacenes.actualizar', ['id' => $almacen->id]) }}" method="POST">
         @csrf
-
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" value="{{ $almacen->nombre }}"><br>
 

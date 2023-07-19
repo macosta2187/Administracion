@@ -1,109 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Registro</title>
-  <style>
+    <title>Formulario de Registro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+            margin: 0;
+        }
 
-body {
-  font-family: Arial, sans-serif;
-}
+        h1 {
+            color: #333;
+            text-align: center;
+        }
 
-form {
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-label {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  transition: border-color 0.3s ease-in-out;
-}
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-  border-color: #5f9ea0;
-}
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
 
-input[type="submit"] {
-  background-color: #5f9ea0;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-input[type="submit"]:hover {
-  background-color: #3a7d80;
-}
-
-nav {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-nav ul li {
-  margin-left: 10px;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-}
-</style>
-<nav>
-    <ul>
-      <li><a href="/salir">Logout</a></li>
-      <li><a href="/index">Dashboard</a></li>
-      <li><a href="/registro">Register</a></li>
-    </ul>
-  </nav>
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-  <form method="post" action="/registrar">
-    @csrf 
-    <label for="name">Nombre:</label>
-    <input type="text" name="name" id="name" required>
-  
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email" required>
-  
-    <label for="password">Contraseña:</label>
-    <input type="password" name="password" id="password" required>
-  
-    <label for="password_confirmation">Confirmar Contraseña:</label>
-    <input type="password" name="password_confirmation" id="password_confirmation" required>
-  
-    <input type="submit" value="Registrarse">
-  </form>
+    <h1>Registro WEB</h1>
+    <form id="myForm" action="http://127.0.0.1:8001/api/Register" method="POST">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="password_confirmation">Confirmar contraseña:</label>
+        <input type="password" id="password_confirmation" name="password_confirmation" required>
+
+        <input type="submit" value="Registrar">
+    </form>
+
+    <script>
+        function postForm() {
+            const form = document.getElementById('myForm');
+            const formData = new FormData(form);
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', form.action, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        alert('Datos guardados correctamente');
+                    } else {
+                        alert('Error al enviar el formulario.');
+                    }
+                }
+            };
+            xhr.send(formData);
+        }       
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            postForm(); 
+        });
+    </script>
 </body>
 </html>
