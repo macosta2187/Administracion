@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
   <title>Login</title>
 </head>
 <body>
-  <h1>Login</h1>
-
+  
   <form id="login-form">
-    <label for="name">name:</label>
+  <h1>Login</h1>
+    <label for="name">Nombre:</label>
     <input type="text" name="name" id="name" required>
 
     <label for="email">Email:</label>
@@ -18,14 +20,14 @@
     <label for="password">Contraseña:</label>
     <input type="password" name="password" id="password" required>
   
-    <label for="password_confirmation">password_confirmation:</label>
+    <label for="password_confirmation">Confirme contraseña:</label>
     <input type="password" name="password_confirmation" id="password_confirmation" required>
 
     <input type="submit" value="Login">
   </form>
 
   <script>
-  document.getElementById('login-form').addEventListener('submit', function(event) {
+    document.getElementById('login-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
     var name = document.getElementById('name').value;
@@ -43,12 +45,14 @@
           if (response.error === "Credenciales incorrectas") {
             console.log(xhr.responseText);
             alert('Credenciales incorrectas. No se puede ingresar a la página.');
-          } else {                     
+          } else {     
+
             token = JSON.parse(xhr.responseText);         
             token = token['Authorization'];      
           
             guardarToken(token); 
             redirigirConToken(token); 
+
           }
         } else {
           console.log(xhr.responseText);
@@ -67,7 +71,7 @@
 
   function redirigirConToken(token) {
     window.location.href = 'http://127.0.0.1:8000/inicio/?' + encodeURIComponent(token);
-    alert(token);
+    //alert(token);
   }
   </script>
 </body>

@@ -1,66 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Formulario</title>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Formulario</title>
+
   
-</head>
-
-<body>
-
 <style>
- 
- body {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  
+  body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
     padding: 20px;
-}
+  }
 
-h1 {
+
+  h1 {
     text-align: center;
-}
+    margin-bottom: 20px;
+   
+  }
 
-form {
-    background-color: #fff;
+ 
+  form {
     max-width: 400px;
     margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+    padding: 20px;   
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
+  
+  label {
     display: block;
+    font-weight: bold;
     margin-bottom: 5px;
-}
+  }
 
-input[type="text"],
-input[type="number"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-input[type="submit"] {
-    display: block;
+  input[type="text"],
+  select {
     width: 100%;
     padding: 10px;
-    background-color: #3b3f3b;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #b93632;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
+  }
 
-input[type="submit"]:hover {
-    background-color:  #3b3f3b;
-}
+  input[type="submit"]:hover {
+    background-color: #0056b3; 
+  }
 
- </style>
+
+
+
+
+  a {
+    color: #007bff; 
+    text-decoration: none;
+  }
+
+</style>
+
+  
+</head>
+
+<body>
 
   <h1>Ingrese Productos</h1>
   <form action="/IngresarProducto" method="POST">

@@ -1,57 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Almacenes</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            padding: 20px;
-            margin: 0;
-        }
-
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-
-        form {
-            max-width: 500px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            font-size: 16px;
-        }
-
-        input[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/style_almacenes.css">
+    <title>Registro de Almacén</title>
 </head>
 <body>
     <h1>Registro de almacen</h1>
@@ -77,27 +31,31 @@
         <input type="submit" value="Guardar">
     </form>
 
-    <script>      
-        function postForm() {
-            const form = document.getElementById('myForm');
-            const formData = new FormData(form);
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', form.action, true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        alert('Formulario enviado correctamente.');
-                    } else {
-                        alert('Error al enviar el formulario.');
-                    }
-                }
-            };
-            xhr.send(formData);
-        }
-
+    <script>
         document.getElementById('myForm').addEventListener('submit', function(event) {
             event.preventDefault(); 
-            postForm();
+
+            const form = event.target;          
+            const formData = new FormData(form);
+            const token = localStorage.getItem('token');          
+
+            fetch('http://127.0.0.1:8002/api/APIinsertoAlmacen', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                         "Authorization": token
+                }
+            })
+
+            .then(response => response.json()) 
+            .then(data => {
+                console.log(data); 
+              
+            })
+            .catch(error => {
+                console.error('Error:', error); 
+               
+            });
         });
     </script>
 </body>

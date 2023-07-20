@@ -44,15 +44,11 @@
         }
 
         input[type="submit"] {
-            background-color: #007bff;
+            background-color: brown; 
             color: #fff;
             cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
+            
 
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 <body>

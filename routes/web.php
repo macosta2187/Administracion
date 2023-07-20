@@ -88,6 +88,3 @@ Route::get('/inicio', function () {
     return view('inicio');
 });
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});

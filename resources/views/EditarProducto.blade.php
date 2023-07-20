@@ -1,66 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/style_editproducto.css">
     <title>Editar Producto</title>
 
 </head>
 <body>
-
-
-<style>
- 
- body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    padding: 20px;
-}
-
-h1 {
-    text-align: center;
-}
-
-form {
-    background-color: #fff;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="number"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-input[type="submit"] {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #3b3f3b;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color:  #3b3f3b;
-}
-
- </style>    
+    
     <form action="{{ route('producto.actualizar', ['id' => $producto->id]) }}" method="POST">
         @csrf
 
@@ -76,15 +25,12 @@ input[type="submit"]:hover {
         <label for="ciudad">Ciudad:</label>
         <input type="text" id="ciudad" name="ciudad" value="{{ $producto->ciudad }}"><br>
 
-
-    <label for="estado">Estado:</label>
-    <select id="estado" name="estado" value="{{ $producto->estado }}" required>
-    <option value="admitido">Admitido</option>
-    <option value="entregado">Entregado</option>
-    <option value="administrado">Administrado</option>
-</select><br><br>
-
-
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado" required>
+            <option value="admitido" {{ $producto->estado == 'admitido' ? 'selected' : '' }}>Admitido</option>
+            <option value="entregado" {{ $producto->estado == 'entregado' ? 'selected' : '' }}>Entregado</option>
+            <option value="administrado" {{ $producto->estado == 'administrado' ? 'selected' : '' }}>Administrado</option>
+        </select><br><br>
 
         <label for="id_lote">Id_lote:</label>
         <input type="text" id="id_lote" name="id_lote" value="{{ $producto->id_lote }}"><br>
