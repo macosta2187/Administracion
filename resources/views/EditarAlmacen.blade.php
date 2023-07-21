@@ -62,25 +62,25 @@ input[type="submit"]:hover {
 
  </style>
     
-    <form action="{{ route('almacenes.actualizar', ['id' => $almacen->id]) }}" method="POST">
+    <form action="{{ route('almacenes.actualizar', ['id' => $almacenes->id]) }}" method="POST">
         @csrf
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" value="{{ $almacen->nombre }}"><br>
+        <input type="text" id="nombre" name="nombre" value="{{ $almacenes->nombre }}"><br>
 
         <label for="calle">Calle:</label>
-        <input type="text" id="calle" name="calle" value="{{ $almacen->calle }}"><br>
+        <input type="text" id="calle" name="calle" value="{{ $almacenes->calle }}"><br>
 
         <label for="numero">Número:</label>
-        <input type="text" id="numero" name="numero" value="{{ $almacen->numero }}"><br>
+        <input type="text" id="numero" name="numero" value="{{ $almacenes->numero }}"><br>
 
         <label for="ciudad">Ciudad:</label>
-        <input type="text" id="ciudad" name="ciudad" value="{{ $almacen->ciudad }}"><br>
+        <input type="text" id="ciudad" name="ciudad" value="{{ $almacenes->ciudad }}"><br>
 
         <label for="latitud">Latitud:</label>
-        <input type="text" id="latitud" name="latitud" value="{{ $almacen->latitud }}"><br>
+        <input type="text" id="latitud" name="latitud" value="{{ $almacenes->latitud }}"><br>
 
         <label for="longitud">Longitud:</label>
-        <input type="text" id="longitud" name="longitud" value="{{ $almacen->longitud }}"><br>
+        <input type="text" id="longitud" name="longitud" value="{{ $almacenes->longitud }}"><br>
 
         <input type="submit" value="Guardar cambios">
     </form>

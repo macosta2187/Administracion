@@ -16,8 +16,8 @@ class AlmacenController extends Controller
 
 public function ListarAlmacen()
     {
-        $almacenes = Almacen::all();
-        return view('ListarAlmacen', compact('almacenes'));
+      
+        return view('ListarAlmacen');
     }
    
 }

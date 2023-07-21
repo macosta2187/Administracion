@@ -28,8 +28,7 @@
 <script>
   const tablaAlmacen = document.getElementById('tabla-almacen');
 
-
-  function eliminarAlmacen(id) {
+function eliminarAlmacen(id) {
     fetch(`http://127.0.0.1:8002/api/APIEliminarAlmacen/${id}`, {
       method: 'DELETE',
       headers:{
@@ -47,6 +46,31 @@
       });
   }
 
+
+ 
+
+
+function editarAlmacen(id) {
+    fetch('http://127.0.0.1:8002/APIModificarAlmacen/{id}', {
+      method: 'POST',
+      headers:{
+             "Authorization": localStorage.getItem('token')
+             
+            }
+    })
+      .then(response => response.json())
+      .then(data => {
+        alert('Esta seguro de editar este dato?');       
+        cargarTablaAlmacen();
+      })
+      .catch(error => {
+        console.error('Error al editar el almacén:', error);
+      });
+  }
+
+
+
+
   
   function cargarTablaAlmacen() {
     fetch('http://127.0.0.1:8002/api/APIlistarAlmacen', {
@@ -59,8 +83,8 @@
       const tablaAlmacen = document.getElementById('tablaAlmacen');
 
       data.forEach(item => {
+        
         const fila = document.createElement('tr');
-
         const idCelda = document.createElement('td');
         idCelda.textContent = item.id;
         fila.appendChild(idCelda);
@@ -88,17 +112,26 @@
         const ciudadCelda = document.createElement('td');
         ciudadCelda.textContent = item.ciudad;
         fila.appendChild(ciudadCelda);
-
   
  
         const eliminarCelda = document.createElement('td');
         const eliminarEnlace = document.createElement('a');
         eliminarEnlace.textContent = 'Eliminar';
         eliminarEnlace.href = 'http://127.0.0.1:8000/ListarAlmacen';
-
         eliminarEnlace.addEventListener('click', () => eliminarAlmacen(item.id));
         eliminarCelda.appendChild(eliminarEnlace);
         fila.appendChild(eliminarCelda);
+
+
+        const editarCelda = document.createElement('td');
+        const editarEnlace = document.createElement('a');
+        editarEnlace.textContent = 'Editar';
+        editarEnlace.href = 'http://127.0.0.1:8000/EditarAlmacen';
+        editarEnlace.addEventListener('click', () => editarAlmacen(item.id));
+        editarCelda.appendChild(editarEnlace);
+        fila.appendChild(editarCelda);
+
+        
         tablaAlmacen.appendChild(fila);
       
       });
@@ -107,7 +140,6 @@
       console.error('Error al obtener los datos:', error);
     });
   }
-
   
   cargarTablaAlmacen();
 </script>

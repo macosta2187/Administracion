@@ -36,8 +36,13 @@ Route::get("/IngresarAlmacen",function () {
 /****************************************************** */
 Route::get("/ListarAlmacen",[AlmacenController::class,"ListarAlmacen"])->middleware(Autenticacion::class);
 //Route::get('/EliminarAlmacen/{id}',[AlmacenController::class,"EliminarAlmacen"])->name('almacen.eliminar');
-//Route::get('/EditarAlmacen/{id}/editar', [AlmacenController::class, 'editarAlmacen'])->name('almacenes.editar');
-//Route::post('/almacenes/{id}/actualizar', [AlmacenController::class, 'actualizarAlmacen'])->name('almacenes.actualizar');
+Route::get('/EditarAlmacen/{id}/editar', [AlmacenController::class, 'editarAlmacen'])->name('almacenes.editar');
+Route::post('/almacenes/{id}/actualizar', [AlmacenController::class, 'actualizarAlmacen'])->name('almacenes.actualizar');
+
+
+Route::get("/EditarAlmacen",function () {
+    return view('EditarAlmacen');
+});
 
 /****************************************************** */
 Route::get("/IngresarProducto",function () {
@@ -64,7 +69,9 @@ Route::post('/producto/{id}/actualizar', [ProductoController::class, 'actualizar
 
 
 
-
+    Route::get("/IngresarLote",function () {
+        return view('IngresarLote');
+    });
 
 Route::get("/IngresarLote",function () {
     return view('IngresarLote');
@@ -81,10 +88,9 @@ Route::get('/error', function () {
 
 Route::post("/registrar",[UserController::class,"Registro"]);
 
-
-
-
 Route::get('/inicio', function () {
     return view('inicio');
 });
+
+
 
