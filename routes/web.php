@@ -25,24 +25,49 @@ Route::get('/', function () {
 
 
 
-/****************************************************** */
-Route::get("/IngresarAlmacen",function () {
-    return view('IngresarAlmacen');
-});
 
 
+/*
 
-//Route::post("/IngresarAlmacen",[AlmacenController::class,"IngresarAlmacen"]);
-/****************************************************** */
+/*
 Route::get("/ListarAlmacen",[AlmacenController::class,"ListarAlmacen"])->middleware(Autenticacion::class);
 //Route::get('/EliminarAlmacen/{id}',[AlmacenController::class,"EliminarAlmacen"])->name('almacen.eliminar');
 Route::get('/EditarAlmacen/{id}/editar', [AlmacenController::class, 'editarAlmacen'])->name('almacenes.editar');
 Route::post('/almacenes/{id}/actualizar', [AlmacenController::class, 'actualizarAlmacen'])->name('almacenes.actualizar');
 
+*/
 
-Route::get("/EditarAlmacen",function () {
-    return view('EditarAlmacen');
+
+
+Route::get('/almacenes/Listar',[AlmacenController::class,"Listar"]);
+Route::post('/almacenes/IngresarAlmacen"',[AlmacenController::class,"Insertar"])->name('almacenes.Insertar');
+Route::get('/almacenes/{almacen}/editar', [AlmacenController::class,"Editar"])->name('almacenes.Editar');
+Route::put('/almacenes/{almacen}', [AlmacenController::class,"Actualizar"])->name('almacenes.Actualizar');
+Route::delete('/almacenes/{almacen}', [AlmacenController::class,"Eliminar"])->name('almacenes.eliminar');
+
+
+
+
+
+
+Route::get("/almacenes/IngresarAlmacen",function () {
+    return view('/almacenes/IngresarAlmacen');
 });
+
+Route::get("/almacenes/Eliminar",function () {
+    return view('/almacenes/Eliminar');
+});
+
+Route::get("/almacenes/Editar",function () {
+    return view('/almacenes/Editar');
+});
+
+
+
+
+
+
+
 
 /****************************************************** */
 Route::get("/IngresarProducto",function () {

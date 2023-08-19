@@ -14,6 +14,6 @@ class Almacen extends Model
     use HasFactory;
     protected $table = 'almacenes';
     use SoftDeletes;
-    use HasFactory;
+   
 
 }

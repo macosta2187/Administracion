@@ -24,6 +24,12 @@
     <input type="password" name="password_confirmation" id="password_confirmation" required>
 
     <input type="submit" value="Login">
+
+   
+
+   
+
+
   </form>
 
   <script>
@@ -34,6 +40,7 @@
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;  
     var password_confirmation = document.getElementById('password_confirmation').value;
+    const checkbox = document.getElementById('redireccionar_checkbox');
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://127.0.0.1:8001/api/Login', true);
@@ -70,9 +77,26 @@
   }
 
   function redirigirConToken(token) {
+
+    
     window.location.href = 'http://127.0.0.1:8000/inicio/?' + encodeURIComponent(token);
     //alert(token);
   }
+
+ 
+
+       
+checkbox.addEventListener('cambio', function() {
+   
+    if (checkbox.checked) {      
+        window.location.href = 'https://127.0.0.1:8000/inicio';
+    }
+});
+
+
+
+
+  
   </script>
 </body>
 </html>

@@ -9,7 +9,9 @@
 </head>
 <body>
     <h1>Registro de almacen</h1>
-    <form id="myForm" action="http://127.0.0.1:8002/api/APIinsertoAlmacen" method="POST">
+
+    <form id="myForm" action="{{ route('almacenes.Insertar') }}" method="POST">
+     @csrf
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
 
@@ -17,7 +19,7 @@
         <input type="text" id="calle" name="calle" required>
 
         <label for="numero">Numero:</label>
-        <input type="text" id="numero" name="numero" required>
+        <input type="text" id="numero" name="numero" required>\
 
         <label for="ciudad">Ciudad:</label>
         <input type="text" id="ciudad" name="ciudad" required>
@@ -31,32 +33,5 @@
         <input type="submit" value="Guardar">
     </form>
 
-    <script>
-        document.getElementById('myForm').addEventListener('submit', function(event) {
-            event.preventDefault(); 
-
-            const form = event.target;          
-            const formData = new FormData(form);
-            const token = localStorage.getItem('token');          
-
-            fetch('http://127.0.0.1:8002/api/APIinsertoAlmacen', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                         "Authorization": token
-                }
-            })
-
-            .then(response => response.json()) 
-            .then(data => {
-                console.log(data); 
-              
-            })
-            .catch(error => {
-                console.error('Error:', error); 
-               
-            });
-        });
-    </script>
 </body>
 </html>

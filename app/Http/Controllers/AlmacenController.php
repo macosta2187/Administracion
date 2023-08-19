@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Almacen;
+use Illuminate\Support\Facades\DB;
 
 
 class AlmacenController extends Controller
@@ -14,13 +15,61 @@ class AlmacenController extends Controller
 
 
 
-public function ListarAlmacen()
+    public function Insertar(Request $request)
     {
-      
-        return view('ListarAlmacen');
-    }
-   
+
+        $almacen = new Almacen;
+        $almacen->nombre = $request->input('nombre');
+        $almacen->calle = $request->input('calle');
+        $almacen->numero = $request->input('numero');
+        $almacen->ciudad = $request->input('ciudad');
+        $almacen->latitud = $request->input('latitud');
+        $almacen->longitud = $request->input('longitud');
+        $almacen->save();
 }
+
+
+    public function Listar()
+    {
+       
+       $almacenes = Almacen::all();
+
+        return view('almacenes.Listar', ['almacenes' => $almacenes]);
+    }
+
+
+    public function Eliminar(Almacen $almacen){
+
+        $almacen->delete();    
+        return redirect("/");
+
+    }
+
+   public function Editar(Almacen $almacen)
+{
+    return view('almacenes.Editar', compact('almacen'));
+}
+    
+public function Actualizar(Request $request, Almacen $almacen)
+
+{
+    $almacen = new Almacen;
+    $almacen->nombre = $request->input('nombre');
+    $almacen->calle = $request->input('calle');
+    $almacen->numero = $request->input('numero');
+    $almacen->ciudad = $request->input('ciudad');
+    $almacen->latitud = $request->input('latitud');
+    $almacen->longitud = $request->input('longitud');
+    $almacen->save();
+
+    return redirect("/");
+}
+
+}
+
+
+  
+
 
 
 
