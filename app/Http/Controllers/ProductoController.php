@@ -36,4 +36,10 @@ class ProductoController extends Controller
 
     }
 
+    public function Editar(Producto $producto)
+    {
+        return view('productos.Editar', compact('productos'));
+    }
+
+
 }
