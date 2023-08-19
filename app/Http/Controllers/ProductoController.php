@@ -28,4 +28,12 @@ class ProductoController extends Controller
         return view('productos.Listar', ['productos' => $productos]);
     }
 
+    public function Eliminar(Producto $producto)
+    {
+
+        $producto->delete();
+        return redirect("/");
+
+    }
+
 }
