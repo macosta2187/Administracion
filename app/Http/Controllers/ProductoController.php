@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use App\Models\Producto;
-use Illuminate\Support\Facades\DB;
-
+use Illuminate\Http\Request;
 
 class ProductoController extends Controller
 {
-    
+
     public function Insertar(Request $request)
     {
 
@@ -21,12 +16,16 @@ class ProductoController extends Controller
         $producto->calle = $request->input('calle');
         $producto->numero = $request->input('numero');
         $producto->ciudad = $request->input('ciudad');
-        $producto->id_lote = $request->input('id_lote');      
+        $producto->id_lote = $request->input('id_lote');
         $producto->save();
-}
+    }
 
+    public function Listar()
+    {
 
- 
+        $producto = Producto::all();
 
+        return view('productos.Listar', ['productos' => $productos]);
+    }
 
 }
