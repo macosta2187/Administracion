@@ -13,5 +13,5 @@ class Producto extends Model
     use HasFactory;
     protected $table = 'productos';
     use SoftDeletes;
-    use HasFactory;
+   
 }

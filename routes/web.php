@@ -27,31 +27,15 @@ Route::get('/', function () {
 
 
 
-/*
-
-/*
-Route::get("/ListarAlmacen",[AlmacenController::class,"ListarAlmacen"])->middleware(Autenticacion::class);
-//Route::get('/EliminarAlmacen/{id}',[AlmacenController::class,"EliminarAlmacen"])->name('almacen.eliminar');
-Route::get('/EditarAlmacen/{id}/editar', [AlmacenController::class, 'editarAlmacen'])->name('almacenes.editar');
-Route::post('/almacenes/{id}/actualizar', [AlmacenController::class, 'actualizarAlmacen'])->name('almacenes.actualizar');
-
-*/
-
-
-
 Route::get('/almacenes/Listar',[AlmacenController::class,"Listar"]);
-Route::post('/almacenes/IngresarAlmacen"',[AlmacenController::class,"Insertar"])->name('almacenes.Insertar');
+Route::post('/almacenes/Ingresar"',[AlmacenController::class,"Insertar"])->name('almacenes.Insertar');
 Route::get('/almacenes/{almacen}/editar', [AlmacenController::class,"Editar"])->name('almacenes.Editar');
 Route::put('/almacenes/{almacen}', [AlmacenController::class,"Actualizar"])->name('almacenes.Actualizar');
 Route::delete('/almacenes/{almacen}', [AlmacenController::class,"Eliminar"])->name('almacenes.eliminar');
 
 
-
-
-
-
-Route::get("/almacenes/IngresarAlmacen",function () {
-    return view('/almacenes/IngresarAlmacen');
+Route::get("/almacenes/Ingresar",function () {
+    return view('/almacenes/Ingresar');
 });
 
 Route::get("/almacenes/Eliminar",function () {
@@ -64,23 +48,15 @@ Route::get("/almacenes/Editar",function () {
 
 
 
+Route::get('/productos/Listar',[ProductoController::class,"Listar"]);
+Route::post('/productos/Ingresar"',[ProductoController::class,"Insertar"])->name('productos.Insertar');
+Route::get('/productos/{producto}/editar', [ProductoController::class,"Editar"])->name('productos.Editar');
+Route::put('/productos/{producto}', [ProductoController::class,"Actualizar"])->name('productos.Actualizar');
+Route::delete('/productos/{producto}', [ProductoController::class,"Eliminar"])->name('productos.eliminar');
 
 
 
 
-
-/****************************************************** */
-Route::get("/IngresarProducto",function () {
-    return view('IngresarProducto');
-});
-Route::post("/IngresarProducto",[ProductoController::class,"IngresarProducto"]);
-/****************************************************** */
-Route::get("/ListarProducto",[ProductoController::class,"ListarProducto"]);
-Route::get('/EliminarProducto/{id}',[ProductoController::class,"EliminarProducto"])->name('producto.eliminar');
-Route::get('/EditarProducto/{id}/editar', [ProductoController::class, 'editarProducto'])->name('producto.editar');
-Route::post('/producto/{id}/actualizar', [ProductoController::class, 'actualizarProducto'])->name('producto.actualizar');
-
-/****************************************************** */
 
 
 
