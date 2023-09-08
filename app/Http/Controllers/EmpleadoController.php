@@ -30,5 +30,14 @@ class EmpleadoController extends Controller
         $empleado->save();
 }
 
+
+public function Listar()
+{
+   
+   $almacenes = Empleado::all();
+
+    return view('empleados.Listar', ['empleados' => $empleado]);
+}
+
     
 }
