@@ -56,6 +56,18 @@ Route::delete('/productos/{producto}', [ProductoController::class,"Eliminar"])->
 
 
 
+Route::get("/productos/Ingresar",function () {
+    return view('/productos/Ingresar');
+});
+
+Route::get("/productos/Eliminar",function () {
+    return view('/productos/Eliminar');
+});
+
+Route::get("/productos/Editar",function () {
+    return view('/productos/Editar');
+});
+
 
 
 

@@ -56,27 +56,28 @@ button[type="submit"]:hover {
 <body>
 
 <div class="container">
-    <h1>Editar Almacén</h1>
-    <form action="{{ route('almacenes.Actualizar', $almacen->id) }}" method="POST">
+    <h1>Editar Prductos</h1>
+    <form action="{{ route('productos.Actualizar', $producto->id) }}" method="POST">
         @csrf
         @method('PUT')
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" value="{{ $almacen->nombre }}" required>
+
+        <label for="descripcion">Descripcion:</label>
+        <input type="text" name="descripcion" value="{{ $producto->descripcion }}" required>
 
         <label for="calle">Calle:</label>
-        <input type="text" name="calle" value="{{ $almacen->calle }}" required>
+        <input type="text" name="calle" value="{{ $producto->calle }}" required>
 
         <label for="numero">Número:</label>
-        <input type="text" name="numero" value="{{ $almacen->numero }}" required>
+        <input type="text" name="numero" value="{{ $producto->numero }}" required>
 
         <label for="ciudad">Ciudad:</label>
-        <input type="text" name="ciudad" value="{{ $almacen->ciudad }}" required>
+        <input type="text" name="ciudad" value="{{ $producto->ciudad }}" required>
 
-        <label for="latitud">Latitud:</label>
-        <input type="text" name="latitud" value="{{ $almacen->latitud }}" required>
+        <label for="estado">Estado:</label>
+        <input type="text" name="estado" value="{{ $producto->estado }}" required>
 
-        <label for="longitud">Longitud:</label>
-        <input type="text" name="longitud" value="{{ $almacen->longitud }}" required>
+        <label for="id_lote">id_lote:</label>
+        <input type="text" name="id_lote" value="{{ $producto->id_lote }}" required>
     
 
         <button type="submit">Guardar cambios</button>

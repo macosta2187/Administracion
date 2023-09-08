@@ -16,6 +16,7 @@ class ProductoController extends Controller
         $producto->calle = $request->input('calle');
         $producto->numero = $request->input('numero');
         $producto->ciudad = $request->input('ciudad');
+        $producto->estado = $request->input('estado');        
         $producto->id_lote = $request->input('id_lote');
         $producto->save();
     }
@@ -49,10 +50,13 @@ class ProductoController extends Controller
         $producto->calle = $request->input('calle');
         $producto->numero = $request->input('numero');
         $producto->ciudad = $request->input('ciudad');
+        $producto->estado = $request->input('estado');        
         $producto->id_lote = $request->input('id_lote');
         $producto->save();
 
         return redirect("/");
     }
+
+    
 
 }
