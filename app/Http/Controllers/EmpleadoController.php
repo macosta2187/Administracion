@@ -39,5 +39,11 @@ public function Listar()
     return view('empleados.Listar', ['empleados' => $empleado]);
 }
 
+
+
+public function Editar(Empleado $empleado)
+{
+    return view('empleados.Editar', compact('empleado'));
+}
     
 }
