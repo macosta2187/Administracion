@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Almacen;
 use App\Models\Producto;
 use App\Models\Lote;
+use App\Models\Empleado;
+use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\AlmacenController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\LoteController;
@@ -32,6 +34,15 @@ Route::post('/almacenes/Ingresar"',[AlmacenController::class,"Insertar"])->name(
 Route::get('/almacenes/{almacen}/editar', [AlmacenController::class,"Editar"])->name('almacenes.Editar');
 Route::put('/almacenes/{almacen}', [AlmacenController::class,"Actualizar"])->name('almacenes.Actualizar');
 Route::delete('/almacenes/{almacen}', [AlmacenController::class,"Eliminar"])->name('almacenes.eliminar');
+
+
+Route::get('/empleados/Listar',[EmpleadosController::class,"Listar"]);
+Route::post('/empleados/Ingresar"',[EmpleadosController::class,"Insertar"])->name('empleados.Insertar');
+Route::get('/empleados/{empleado}/editar', [EmpleadosController::class,"Editar"])->name('empleados.Editar');
+Route::put('/empleados/{empleado}', [EmpleadosController::class,"Actualizar"])->name('empleados.Actualizar');
+Route::delete('/empleados/{empleado}', [EmpleadosController::class,"Eliminar"])->name('empleados.eliminar');
+
+
 
 
 Route::get("/almacenes/Ingresar",function () {

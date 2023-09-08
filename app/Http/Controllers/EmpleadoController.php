@@ -2,18 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Empleado;
 use Illuminate\Http\Request;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use App\Models\Empleado;
-use Illuminate\Support\Facades\DB;
-
-
-
 class EmpleadoController extends Controller
-
 {
 
     public function Insertar(Request $request)
@@ -28,27 +20,23 @@ class EmpleadoController extends Controller
         $empleado->fechanac = $request->input('fechanac');
         $empleado->rol = $request->input('rol');
         $empleado->save();
-}
+    }
 
+    public function Listar()
+    {
 
-public function Listar()
-{
-   
-   $almacenes = Empleado::all();
+        $almacenes = Empleado::all();
 
-    return view('empleados.Listar', ['empleados' => $empleado]);
-}
+        return view('empleados.Listar', ['empleados' => $empleado]);
+    }
 
+    public function Editar(Empleado $empleado)
+    {
+        return view('empleados.Editar', compact('empleado'));
+    }
 
-
-public function Editar(Empleado $empleado)
-{
-    return view('empleados.Editar', compact('empleado'));
-}
-
-public function Actualizar(Request $request, Empleado $empleado)
-
-{
+    public function Actualizar(Request $request, Empleado $empleado)
+    {
         $empleado = new Empleado;
         $empleado->ci = $request->input('ci');
         $empleado->nombre = $request->input('nombre');
@@ -59,8 +47,7 @@ public function Actualizar(Request $request, Empleado $empleado)
         $empleado->rol = $request->input('rol');
         $almacen->save();
 
-    return redirect("/");
-}
+        return redirect("/");
+    }
 
-    
 }
