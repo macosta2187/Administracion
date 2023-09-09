@@ -57,7 +57,7 @@ button[type="submit"]:hover {
 
 <div class="container">
     <h1>Editar Vehiculos</h1>
-    <form action="{{ route('vehiculos.Actualizar', $vehiculo->id) }}" method="POST">
+    <form action="{{ route('vehiculos.eliminar', ['id' => $vehiculo->id]) }}" method="POST">
         @csrf
         @method('PUT')
         <label for="matricula">matricula:</label>

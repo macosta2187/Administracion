@@ -107,7 +107,7 @@
                         <a href="{{ route('vehiculos.Editar', $vehiculo->id) }}" class="edit-button">Editar</a>
                     </td>
                     <td data-label="Eliminar">
-                        <form action="{{ route('vehiculos.eliminar', $vehiculo->id) }}" method="delete" class="delete-form">
+                    <form action="{{ route('vehiculos.eliminar', ['id' => $vehiculo->id]) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="delete-button">Eliminar</button>

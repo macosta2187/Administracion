@@ -5,7 +5,7 @@ use App\Models\Almacen;
 use App\Models\Producto;
 use App\Models\Lote;
 use App\Models\Empleado;
-use App\Models\Vehiculos;
+use App\Models\Vehiculo;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\AlmacenController;
@@ -85,7 +85,7 @@ Route::get('/vehiculos/Listar',[VehiculoController::class,"Listar"])->name('vehi
 Route::post('/vehiculos/Ingresar',[VehiculoController::class,"Insertar"])->name('vehiculos.Insertar');
 Route::get('/vehiculos/{vehiculo}/editar', [VehiculoController::class,"Editar"])->name('vehiculos.Editar');
 Route::put('/vehiculos/{vehiculo}', [VehiculoController::class,"Actualizar"])->name('vehiculos.Actualizar');
-Route::delete('/vehiculos/{vehiculo}', [VehiculoController::class,"Eliminar"])->name('vehiculos.eliminar');
+Route::delete('/vehiculos/{id}', [VehiculoController::class,"Eliminar"])->name('vehiculos.eliminar');
 
 Route::get("/vehiculos/Ingresar",function () {
     return view('/vehiculos/Ingresar');

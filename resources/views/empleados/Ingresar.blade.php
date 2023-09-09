@@ -73,7 +73,6 @@
         <label for="email">Correo Electrónico:</label>
         <input type="email" id="email" name="email" required>
 
-
         <label for="fechanac">Fecha nacimiento:</label>
         <input type="date" id="fechanac" name="fechanac">
 
@@ -82,10 +81,13 @@
         <input type="text" id="celular" name="celular">
 
         <label for="rol">Rol:</label>
-        <input type="text" id="rol" name="rol">
+     <select id="rol" name="rol">
+        <option value="Chofer">Chofer</option>
+        <option value="Cajero">Cajero</option>
+        <option value="Administrativo">Administrativo</option>
+    </select>
 
         <input type="submit" value="Guardar">
     </form>
 </body>
 </html>
-
