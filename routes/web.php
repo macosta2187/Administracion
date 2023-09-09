@@ -5,6 +5,8 @@ use App\Models\Almacen;
 use App\Models\Producto;
 use App\Models\Lote;
 use App\Models\Empleado;
+use App\Models\Vehiculos;
+use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\AlmacenController;
 use App\Http\Controllers\ProductoController;
@@ -75,6 +77,33 @@ Route::get("/empleados/Editar",function () {
 Route::get("/empleados/Actualizar",function () {
     return view('/empleados/Actualizar');
 });
+
+
+
+
+Route::get('/vehiculos/Listar',[VehiculoController::class,"Listar"])->name('vehiculos.Listar');
+Route::post('/vehiculos/Ingresar',[VehiculoController::class,"Insertar"])->name('vehiculos.Insertar');
+Route::get('/vehiculos/{vehiculo}/editar', [VehiculoController::class,"Editar"])->name('vehiculos.Editar');
+Route::put('/vehiculos/{vehiculo}', [VehiculoController::class,"Actualizar"])->name('vehiculos.Actualizar');
+Route::delete('/vehiculos/{vehiculo}', [VehiculoController::class,"Eliminar"])->name('vehiculos.eliminar');
+
+Route::get("/vehiculos/Ingresar",function () {
+    return view('/vehiculos/Ingresar');
+});
+
+Route::delete("/vehiculos/Eliminar",function () {
+    return view('/vehiculos/Eliminar');
+});
+
+Route::get("/vehiculos/Editar",function () {
+    return view('/vehiculos/Editar');
+});
+
+Route::get("/vehiculos/Actualizar",function () {
+    return view('/vehiculos/Actualizar');
+});
+
+
 
 
 Route::get('/productos/Listar',[ProductoController::class,"Listar"]);

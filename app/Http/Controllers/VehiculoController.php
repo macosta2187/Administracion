@@ -16,10 +16,20 @@ class VehiculoController extends Controller
         $vehiculo->marca = $request->input('marca');
         $vehiculo->modelo = $request->input('modelo');
         $vehiculo->tipo = $request->input('tipo');
-        $vehiculo->capacidad_peso = $request->input('capacidad_peso');        
+        $vehiculo->capacidad_peso = $request->input('capacidad_peso');
+        $vehiculo->ruta = $request->input('ruta');        
         $vehiculo->id_chofer = $request->input('id_chofer');
         $vehiculo->save();
     }
+
+
+    public function Eliminar($id)
+    {
+        $vehiculo = Vehiculo::find($id);
+        $vehiculo->delete();
+       
+    }
+
 
     public function Listar()
     {
@@ -41,7 +51,8 @@ class VehiculoController extends Controller
         $vehiculo->marca = $request->input('marca');
         $vehiculo->modelo = $request->input('modelo');
         $vehiculo->tipo = $request->input('tipo');
-        $vehiculo->capacidad_peso = $request->input('capacidad_peso');        
+        $vehiculo->capacidad_peso = $request->input('capacidad_peso');
+        $vehiculo->ruta = $request->input('ruta');        
         $vehiculo->id_chofer = $request->input('id_chofer');
         $vehiculo->save();
 
