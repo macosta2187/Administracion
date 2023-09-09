@@ -20,4 +20,12 @@ class VehiculoController extends Controller
         $vehiculo->id_chofer = $request->input('id_chofer');
         $vehiculo->save();
     }
+
+    public function Listar()
+    {
+
+        $vehiculo = Vehiculo::all();
+
+        return view('vehiculos.Listar', ['vehiculos' => $vehiculo]);
+    }
 }
