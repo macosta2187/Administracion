@@ -28,4 +28,9 @@ class VehiculoController extends Controller
 
         return view('vehiculos.Listar', ['vehiculos' => $vehiculo]);
     }
+
+    public function Editar(Vehiculo $vehiculo)
+    {
+        return view('vehiculos.Editar', compact('vehiculo'));
+    }
 }
