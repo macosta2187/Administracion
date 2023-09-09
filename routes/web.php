@@ -5,7 +5,7 @@ use App\Models\Almacen;
 use App\Models\Producto;
 use App\Models\Lote;
 use App\Models\Empleado;
-use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\AlmacenController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\LoteController;
@@ -36,15 +36,6 @@ Route::put('/almacenes/{almacen}', [AlmacenController::class,"Actualizar"])->nam
 Route::delete('/almacenes/{almacen}', [AlmacenController::class,"Eliminar"])->name('almacenes.eliminar');
 
 
-Route::get('/empleados/Listar',[EmpleadosController::class,"Listar"]);
-Route::post('/empleados/Ingresar"',[EmpleadosController::class,"Insertar"])->name('empleados.Insertar');
-Route::get('/empleados/{empleado}/editar', [EmpleadosController::class,"Editar"])->name('empleados.Editar');
-Route::put('/empleados/{empleado}', [EmpleadosController::class,"Actualizar"])->name('empleados.Actualizar');
-Route::delete('/empleados/{empleado}', [EmpleadosController::class,"Eliminar"])->name('empleados.eliminar');
-
-
-
-
 Route::get("/almacenes/Ingresar",function () {
     return view('/almacenes/Ingresar');
 });
@@ -57,6 +48,33 @@ Route::get("/almacenes/Editar",function () {
     return view('/almacenes/Editar');
 });
 
+
+
+Route::get('/empleados/Listar',[EmpleadoController::class,"Listar"])->name('empleados.Listar');
+Route::post('/empleados/Ingresar',[EmpleadoController::class,"Insertar"])->name('empleados.Insertar');
+Route::get('/empleados/{empleado}/editar', [EmpleadoController::class,"Editar"])->name('empleados.Editar');
+Route::put('/empleados/{empleado}', [EmpleadoController::class,"Actualizar"])->name('empleados.Actualizar');
+Route::delete('/empleados/{empleado}', [EmpleadoController::class,"Eliminar"])->name('empleados.eliminar');
+
+
+
+
+
+Route::get("/empleados/Ingresar",function () {
+    return view('/empleados/Ingresar');
+});
+
+Route::get("/empleados/Eliminar",function () {
+    return view('/empleados/Eliminar');
+});
+
+Route::get("/empleados/Editar",function () {
+    return view('/empleados/Editar');
+});
+
+Route::get("/empleados/Actualizar",function () {
+    return view('/empleados/Actualizar');
+});
 
 
 Route::get('/productos/Listar',[ProductoController::class,"Listar"]);

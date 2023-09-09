@@ -64,17 +64,19 @@ button[type="submit"]:hover {
         <input type="text" name="nombre" value="{{ $empleado->nombre }}" required>
 
         <label for="apellido">Apellido:</label>
-        <input type="text" name="apellido" value="{{ $empleado->calle }}" required>
+        <input type="text" name="apellido" value="{{ $empleado->apellido }}" required>
 
         <label for="email">Correo Electrónico:</label>
-        <input type="email" name="email" value="{{ $empleado->numero }}" required>
+        <input type="email" name="email" value="{{ $empleado->email }}" required>
 
-        <label for="telefono">Número de Teléfono:</label>
-        <input type="tel" name="telefono" value="{{ $empleado->ciudad }}" required>
+        <label for="celular">Número de celular:</label>
+        <input type="tel" name="celular" value="{{ $empleado->celular }}" required>
 
-        <label for="cargo">Cargo:</label>
-        <input type="text" name="cargo" value="{{ $empleado->latitud }}" required>
-    
+        <label for="fechanac">fechanac:</label>
+        <input type="date" name="fechanac" value="{{ $empleado->fechanac }}" required>
+
+        <label for="rol">rol:</label>
+        <input type="text" name="rol" value="{{ $empleado->rol }}" required>    
 
         <button type="submit">Guardar cambios</button>
     </form>

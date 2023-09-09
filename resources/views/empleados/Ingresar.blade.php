@@ -60,6 +60,10 @@
 
     <form id="myForm" action="{{ route('empleados.Insertar') }}" method="POST">
      @csrf
+
+        <label for="ci">CI:</label>
+        <input type="text" id="ci" name="ci" required>
+
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
 
@@ -69,11 +73,16 @@
         <label for="email">Correo Electrónico:</label>
         <input type="email" id="email" name="email" required>
 
-        <label for="telefono">Número de Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono">
 
-        <label for="cargo">Cargo:</label>
-        <input type="text" id="cargo" name="cargo">
+        <label for="fechanac">Fecha nacimiento:</label>
+        <input type="date" id="fechanac" name="fechanac">
+
+
+        <label for="celular">Número de celular:</label>
+        <input type="text" id="celular" name="celular">
+
+        <label for="rol">Rol:</label>
+        <input type="text" id="rol" name="rol">
 
         <input type="submit" value="Guardar">
     </form>

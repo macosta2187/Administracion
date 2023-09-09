@@ -24,11 +24,20 @@ class EmpleadoController extends Controller
 
     public function Listar()
     {
-
-        $almacenes = Empleado::all();
-
-        return view('empleados.Listar', ['empleados' => $empleado]);
+        $empleados = Empleado::all();
+        return view('empleados.Listar', compact('empleados'));
     }
+    
+
+
+    public function eliminar($id)
+{
+    $empleado = Empleado::find($id);
+    $empleado->delete();
+   
+}
+
+
 
     public function Editar(Empleado $empleado)
     {

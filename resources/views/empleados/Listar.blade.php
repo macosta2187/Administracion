@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Productos</title>
+    <title>Lista de Empleados</title>
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -60,6 +60,7 @@
             padding: 5px 10px;
             border-radius: 3px;
             cursor: pointer;
+            text-decoration: none; /* Agregamos esto para eliminar la decoración de enlace */
         }
 
         .delete-button {
@@ -69,41 +70,44 @@
             padding: 5px 10px;
             border-radius: 3px;
             cursor: pointer;
+            text-decoration: none; /* Agregamos esto para eliminar la decoración de enlace */
         }
 
         tr:hover {
-    background-color: #e0e0e0; /* Cambia el color de fondo al pasar el mouse */
-}
+            background-color: #e0e0e0; /* Cambia el color de fondo al pasar el mouse */
+        }
+
     </style>
-      
+
 </head>
 <body>
     <div class="container">
-        <h1>Lista de Productos</h1>
+        <h1>Lista de empleados</h1>
         <table>
             <tr>
-                <th>Descripcion</th>
-                <th>Calle</th>
-                <th>Número</th>
-                <th>Ciudad</th>
-                <th>Latitud</th>
-                <th>Estado</th>
-                <th>id_lote</th>
+                <th>Ci</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Celular</th>
+                <th>Email</th>
+                <th>Fecha de nacimiento</th>
+                <th>Rol</th>
                 <th>Eliminar</th>
             </tr>
-            @forelse($productos as $producto)
+            @forelse($empleados as $empleado)
                 <tr>
-                    <td data-label="Descripcion">{{ $producto->descripcion }}</td>
-                    <td data-label="Calle">{{ $producto->calle }}</td>
-                    <td data-label="Número">{{ $producto->numero }}</td>
-                    <td data-label="Ciudad">{{ $producto->ciudad }}</td>
-                    <td data-label="Estado">{{ $producto->estado }}</td>
-                    <td data-label="id_lote">{{ $producto->id_lote }}</td>
+                    <td data-label="Ci">{{ $empleado->ci }}</td>
+                    <td data-label="Nombre">{{ $empleado->nombre }}</td>
+                    <td data-label="Apellido">{{ $empleado->apellido }}</td>
+                    <td data-label="Celular">{{ $empleado->celular }}</td>
+                    <td data-label="Email">{{ $empleado->email }}</td>
+                    <td data-label="Fecha de nacimiento">{{ $empleado->fechanac }}</td>
+                    <td data-label="Rol">{{ $empleado->rol }}</td>
                     <td data-label="Editar">
-                        <a href="{{ route('productos.Editar', $producto->id) }}" class="edit-button">Editar</a>
+                        <a href="{{ route('empleados.Editar', $empleado->id) }}" class="edit-button">Editar</a>
                     </td>
                     <td data-label="Eliminar">
-                        <form action="{{ route('productos.eliminar', $producto->id) }}" method="POST" class="delete-form">
+                        <form action="{{ route('empleados.eliminar', $empleado->id) }}" method="POST" class="delete-form">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="delete-button">Eliminar</button>
@@ -111,10 +115,11 @@
                     </td>
                 </tr>
             @empty
-                <tr id="no-results-row"><td colspan="8">No se encontraron resultados.</td></tr>
+                <tr id="no-results-row">
+                    <td colspan="8">No se encontraron resultados.</td>
+                </tr>
             @endforelse
         </table>
     </div>
-
 </body>
 </html>
