@@ -6,6 +6,8 @@ use App\Models\Producto;
 use App\Models\Lote;
 use App\Models\Empleado;
 use App\Models\Vehiculo;
+use App\Models\Paquete;
+use App\Http\Controllers\PaqueteController;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\AlmacenController;
@@ -26,9 +28,6 @@ use Illuminate\Http\Request;
 Route::get('/', function () {  
     return view('login');
 })->name('login');
-
-
-
 
 
 Route::get('/almacenes/Listar',[AlmacenController::class,"Listar"]);
@@ -129,8 +128,22 @@ Route::get("/productos/Editar",function () {
 
 
 
+Route::post('/paquetes/Ingresar"',[PaqueteController::class,"Insertar"])->name('paquetes.Insertar');
 
-  
+
+
+Route::get("/paquetes/Ingresar",function () {
+    return view('/paquetes/Ingresar');
+});
+
+
+Route::get('/transito/FormularioRlotes',[PaqueteController::class,"Listar"]);
+
+
+
+Route::post('/asignar-lote',[LoteController::class,"asignarLote"])->name('asignar.lote');
+
+
     Route::post("/IngresarLote",[LoteController::class,"IngresarLote"])->middleware(Autenticacion::class);
     /****************************************************** */
     Route::get("/ListarLote",[LoteController::class,"ListarLote"]);

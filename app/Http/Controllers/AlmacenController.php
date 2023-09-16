@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Almacen;
+use App\Models\Lote;
 use Illuminate\Support\Facades\DB;
 
 
@@ -64,6 +65,10 @@ public function Actualizar(Request $request, Almacen $almacen)
 
     return redirect("/");
 }
+
+
+
+
 
 }
 

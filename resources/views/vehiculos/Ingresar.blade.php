@@ -73,7 +73,6 @@
         <label for="tipo">tipo:</label>
         <input type="text" id="tipo" name="tipo" required>
 
-
         <label for="capacidad_peso">capacidad_peso</label>
         <input type="text" id="capacidad_peso" name="capacidad_peso">
 

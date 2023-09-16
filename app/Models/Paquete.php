@@ -7,19 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
-class Lote extends Model
+class Paquete extends Model
 {
     use HasFactory;
-    protected $table = 'conformans';
+    protected $table = 'paquetes';
     use SoftDeletes;
-    use HasFactory;
+   
 
-    public function paquetes()
+    public function lotes()
     {
-        return $this->belongsToMany(Paquete::class);
+        return $this->belongsToMany(Lote::class);
     }
-
-
-
 }
