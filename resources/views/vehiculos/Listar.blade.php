@@ -86,12 +86,12 @@
         <table>
             <tr>
                 <th>matricula</th>
-                <th>marca</th>
-                <th>modelo</th>
-                <th>tipo</th>
-                <th>capacidad_peso</th>
-                <th>ruta</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Peso</th>
+                <th>Capacidad</th>                <
                 <th>id_chofer</th>
+                <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
             @forelse($vehiculos as $vehiculo)
@@ -99,9 +99,8 @@
                     <td data-label="matricula">{{ $vehiculo->matricula }}</td>
                     <td data-label="marca">{{ $vehiculo->marca }}</td>
                     <td data-label="modelo">{{ $vehiculo->modelo }}</td>
-                    <td data-label="tipo">{{ $vehiculo->tipo }}</td>
-                    <td data-label="capacidad_peso">{{ $vehiculo->ruta }}</td>
-                    <td data-label="ruta">{{ $vehiculo->ruta }}</td>
+                    <td data-label="peso">{{ $vehiculo->peso }}</td>
+                    <td data-label="capacidad_peso">{{ $vehiculo->capacidad }}</td>                    
                     <td data-label="id_chofer">{{ $vehiculo->id_chofer }}</td>
                     <td data-label="Editar">
                         <a href="{{ route('vehiculos.Editar', $vehiculo->id) }}" class="edit-button">Editar</a>

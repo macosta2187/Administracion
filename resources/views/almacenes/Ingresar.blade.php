@@ -19,16 +19,38 @@
         <input type="text" id="calle" name="calle" required>
 
         <label for="numero">Numero:</label>
-        <input type="text" id="numero" name="numero" required>\
+        <input type="text" id="numero" name="numero" required>
 
-        <label for="ciudad">Ciudad:</label>
-        <input type="text" id="ciudad" name="ciudad" required>
+        <label for="localidad">Localidad:</label>
+        <input type="text" id="localidad" name="localidad" required>
 
-        <label for="latitud">Latitud:</label>
-        <input type="text" id="latitud" name="latitud" required>
+<label for="departamento">Departamento:</label>
+<select id="departamento" name="departamento" required>
+  <option value="Artigas">Artigas</option>
+  <option value="Canelones">Canelones</option>
+  <option value="Cerro Largo">Cerro Largo</option>
+  <option value="Colonia">Colonia</option>
+  <option value="Durazno">Durazno</option>
+  <option value="Flores">Flores</option>
+  <option value="Florida">Florida</option>
+  <option value="Lavalleja">Lavalleja</option>
+  <option value="Maldonado">Maldonado</option>
+  <option value="Montevideo">Montevideo</option>
+  <option value="Paysandú">Paysandú</option>
+  <option value="Río Negro">Río Negro</option>
+  <option value="Rivera">Rivera</option>
+  <option value="Rocha">Rocha</option>
+  <option value="Salto">Salto</option>
+  <option value="San José">San José</option>
+  <option value="Soriano">Soriano</option>
+  <option value="Tacuarembó">Tacuarembó</option>
+  <option value="Treinta y Tres">Treinta y Tres</option>
+</select>
 
-        <label for="longitud">Longitud:</label>
-        <input type="text" id="longitud" name="longitud" required>
+        <label for="telefono">telefono:</label>
+        <input type="numeric" id="telefono" name="telefono" required>
+		
+		
 
         <input type="submit" value="Guardar">
     </form>

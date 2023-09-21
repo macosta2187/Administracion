@@ -60,7 +60,7 @@
             padding: 5px 10px;
             border-radius: 3px;
             cursor: pointer;
-            text-decoration: none; /* Agregamos esto para eliminar la decoración de enlace */
+            text-decoration: none; 
         }
 
         .delete-button {
@@ -70,11 +70,11 @@
             padding: 5px 10px;
             border-radius: 3px;
             cursor: pointer;
-            text-decoration: none; /* Agregamos esto para eliminar la decoración de enlace */
+            text-decoration: none;
         }
 
         tr:hover {
-            background-color: #e0e0e0; /* Cambia el color de fondo al pasar el mouse */
+            background-color: #e0e0e0; 
         }
 
     </style>
@@ -90,8 +90,8 @@
                 <th>Apellido</th>
                 <th>Celular</th>
                 <th>Email</th>
-                <th>Fecha de nacimiento</th>
-                <th>Rol</th>
+                <th>Fecha de nacimiento</th>                
+                <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
             @forelse($empleados as $empleado)
@@ -101,8 +101,7 @@
                     <td data-label="Apellido">{{ $empleado->apellido }}</td>
                     <td data-label="Celular">{{ $empleado->celular }}</td>
                     <td data-label="Email">{{ $empleado->email }}</td>
-                    <td data-label="Fecha de nacimiento">{{ $empleado->fechanac }}</td>
-                    <td data-label="Rol">{{ $empleado->rol }}</td>
+                    <td data-label="Fecha de nacimiento">{{ $empleado->fechanac }}</td>                    <
                     <td data-label="Editar">
                         <a href="{{ route('empleados.Editar', $empleado->id) }}" class="edit-button">Editar</a>
                     </td>

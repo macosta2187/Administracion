@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class LoteController extends Controller
 {
+    /*
     public function IngresarLote(Request $request)
     {
                  
@@ -51,45 +52,64 @@ public function ListarLote()
     }
 
 
+  
     public function asignarLote(Request $request)
     {
-       
-        $calleSeleccionado = $request->input('calle'); 
-        $loteSeleccionado = $request->input('lote');  
-        $departamentoSeleccionado = $request->input('departamento');  
-        $numeroSeleccionado = $request->input('numero');  
-        $fechaSeleccionado = $request->input('fecha');  
-        $telefonoSeleccionado = $request->input('telefono');  
-        $tamañoSeleccionado = $request->input('tamaño');  
-        $pesoSeleccionado = $request->input('peso');  
-        $estatusSeleccionado = $request->input('estatus');  
-        $paquetesSeleccionados = $request->input('seleccionar');
-        $localidadSeleccionado = $request->input('localidad');
+        $paquete = $request->input('Paquetes');
     
+        if ($paquete !== null && is_array($paquete) && isset($paquete['lote']) && isset($paquete['estatus']) && isset($paquete['paqueteId']) && isset($paquete['camionId'])) {
+            $lote = new Lote();
+            $lote->lote = $paquete['lote'];
+            $lote->estatus = $paquete['estatus'];
+            $lote->paqueteId = $paquete['paqueteId'];
+            $lote->camionId = $paquete['camionId'];
+            $lote->save();
+    
+        
+            $paqueteExistente = Paquete::find($paquete['paqueteId']);
+    
+            if ($paqueteExistente) {
+                $paqueteExistente->delete();
+            }
+    
+          
+            return redirect()->route('inicio');
+        } else {
+            return redirect("/");
        
-        foreach ($paquetesSeleccionados as $paqueteId) {          
-            DB::table('conformans')->insert([
-                'lote_id' => $loteSeleccionado, 
-                'paquete_id' => $paqueteId,
-                'calle_conforman' => $calleSeleccionado,                              
-                'departamento_conforman' => $departamentoSeleccionado,
-                'localidad_conforman' => $localidadSeleccionado,
-                'numero_conforman' =>$numeroSeleccionado,
-                'fecha_conforman' =>$fechaSeleccionado, 
-                'telefono_conforman' =>$telefonoSeleccionado,
-                'tamaño_conforman' =>$tamañoSeleccionado,
-                'peso_conforman' =>$pesoSeleccionado, 
-                'estatus_conforman' =>$estatusSeleccionado,
-                
-
-
-                
-            ]);
         }
+        */
 
-   
-        Paquete::whereIn('id', $paquetesSeleccionados)->delete();
-        return redirect()->back()->with('OK', 'Lote asignado con éxito.');
+
+        public function ingresarLote(Request $request)
+        {
+            $request->validate([
+                'lote' => 'required|integer|min:1', // Validación básica para el número de lote
+            ]);
+    
+            // Crear un nuevo lote en la base de datos
+            $lote = new Lote();
+            $lote->numero = $request->input('lote');
+            $lote->save();
+    
+            // Redirigir a la página de lista de paquetes o donde sea necesario
+            return redirect()->route('paquetes/Listar'); // Reemplaza 'listaPaquetes' con el nombre real de tu ruta
+        }
+        public function asignarLote(Request $request)
+        {
+            $request->validate([
+                'camionId' => 'required|integer', // Asegúrate de validar el camión seleccionado
+                'seleccionarPaquete' => 'required|array', // Asegúrate de validar los paquetes seleccionados
+            ]);
+    
+            $camionId = $request->input('camionId');
+            $paquetesSeleccionados = $request->input('seleccionarPaquete');
+    
+            // Aquí debes implementar la lógica para asignar los paquetes al camión y guardar estos cambios en la base de datos
+    
+            // Redirigir a la página de lista de paquetes o donde sea necesario
+            return redirect()->route('paquetes/Listar'); // Reemplaza 'listaPaquetes' con el nombre real de tu ruta
+        }
     }
     
    
@@ -97,4 +117,4 @@ public function ListarLote()
     
     
     
-}
+

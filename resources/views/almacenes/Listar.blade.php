@@ -17,7 +17,7 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: #F85C3D;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
@@ -86,9 +86,9 @@
                 <th>Nombre</th>
                 <th>Calle</th>
                 <th>Número</th>
-                <th>Ciudad</th>
-                <th>Latitud</th>
-                <th>Longitud</th>
+                <th>Localidad</th>
+                <th>Departamento</th>
+                <th>Telefono</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
@@ -97,9 +97,9 @@
                     <td data-label="Nombre">{{ $almacen->nombre }}</td>
                     <td data-label="Calle">{{ $almacen->calle }}</td>
                     <td data-label="Número">{{ $almacen->numero }}</td>
-                    <td data-label="Ciudad">{{ $almacen->ciudad }}</td>
-                    <td data-label="Latitud">{{ $almacen->latitud }}</td>
-                    <td data-label="Longitud">{{ $almacen->longitud }}</td>
+                    <td data-label="Localidad">{{ $almacen->localidad }}</td>
+                    <td data-label="Departamento">{{ $almacen->departamento }}</td>
+                    <td data-label="Telefono">{{ $almacen->telefono }}</td>
                     <td data-label="Editar">
                         <a href="{{ route('almacenes.Editar', $almacen->id) }}" class="edit-button">Editar</a>
                     </td>

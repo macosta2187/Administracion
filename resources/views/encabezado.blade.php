@@ -5,6 +5,8 @@
 <style>
 body {
   font-family: "Lato", sans-serif;
+  background-image: url("fondo.jpg");
+  background-size: 100% 100%;
 }
 
 .sidenav {
@@ -33,6 +35,15 @@ body {
   color: #f1f1f1;
 }
 
+.footer {
+	
+  padding: 20px;
+  text-align: center;
+  background: #333; 
+  color: white; 
+  
+}
+
 .sidenav .closebtn {
   position: absolute;
   top: 0;
@@ -42,8 +53,9 @@ body {
 }
 
 #main {
-  transition: margin-left .5s;
-  padding: 16px;
+    transition: margin-left .5s;
+    padding: 16px;
+    margin-bottom: 60px; /* Igual al alto del footer */
 }
 
 @media screen and (max-height: 450px) {
@@ -56,10 +68,15 @@ body {
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+  <a href="/almacenes/Ingresar">Ingreso de Almacen</a>
+  <a href="/almacenes/Listar">Listar Almacenes</a>
+  <a href="/empleados/Ingresar">Ingreso de Empleados</a>
+  <a href="/empleados/Listar">Listar Empleados</a>
+  <a href="/paquetes/Ingresar">Ingreso de Paquetes</a>
+  <a href="/paquetes/Listar">Listar Paquetes</a>
+  <a href="/vehiculos/Ingresar">Ingreso de Vehiculos</a>
+  <a href="/vehiculos/Listar">Listar Vehiculos</a>
+
 </div>
 
 <div id="main">
@@ -80,5 +97,9 @@ function closeNav() {
 }
 </script>
    
+
+
 </body>
+
+
 </html> 

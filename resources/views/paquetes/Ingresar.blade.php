@@ -69,45 +69,78 @@
 
     <form id="myForm" action="{{ route('paquetes.Insertar') }}" method="POST">
         @csrf
+
+
+        <label for="descripcion">Descripcion:</label>
+        <input type="text" id="descripcion" name="descripcion" required>
+
         <label for="calle">Calle:</label>
         <input type="text" id="calle" name="calle" required>
 
         <label for="numero">Número:</label>
-        <input type="text" id="numero" name="numero" required>
+        <input type="numeric" id="numero" name="numero" required>
 
         <label for="localidad">Localidad:</label>
         <input type="text" id="localidad" name="localidad" required>
 
         <label for="departamento">Departamento:</label>
-        <select id="departamento" name="departamento" required>
-        <option value="">Selecciona un departamento</option>
-        </select>
+<select id="departamento" name="departamento" required>
+  <option value="Artigas">Artigas</option>
+  <option value="Canelones">Canelones</option>
+  <option value="Cerro Largo">Cerro Largo</option>
+  <option value="Colonia">Colonia</option>
+  <option value="Durazno">Durazno</option>
+  <option value="Flores">Flores</option>
+  <option value="Florida">Florida</option>
+  <option value="Lavalleja">Lavalleja</option>
+  <option value="Maldonado">Maldonado</option>
+  <option value="Montevideo">Montevideo</option>
+  <option value="Paysandú">Paysandú</option>
+  <option value="Río Negro">Río Negro</option>
+  <option value="Rivera">Rivera</option>
+  <option value="Rocha">Rocha</option>
+  <option value="Salto">Salto</option>
+  <option value="San José">San José</option>
+  <option value="Soriano">Soriano</option>
+  <option value="Tacuarembó">Tacuarembó</option>
+  <option value="Treinta y Tres">Treinta y Tres</option>
+</select>
 
-        <label for="estatus">Estatus:</label>
-        <select id="estatus" name="estatus" required>
-        <option value="En transito">En transito</option>
-        <option value="Despachado">Despachado</option>
-        <option value="Entregado">Entregado</option>
-       </select>
+
+
+<label for="telefono">Teléfono:</label>
+<input type="tel" id="telefono" name="telefono" required>
+
+
+<label for="estatus">Estatus:</label>
+<select id="estatus" name="estatus" required>
+  <option value="Ingresado">Ingresado</option>
+  <option value="EnAlmacenOrigen">En almacen origen</option>
+  <option value="EnTransito">En transito</option>
+  <option value="EnAlmacenDestino">En almacen destino</option>
+  <option value="DisponibleEnPickUp">Disponible en pick up</option>
+  <option value="EnDistribucion">En distribucion</option>
+  <option value="ReagendaEntrega">Reagenda entrega</option>
+  <option value="Entregado">Entregado</option>
+</select>
 
 
        <label for="tamaño">Tamaño:</label>
        <select id="tamaño" name="tamaño" required>
-       <option value="chico">Chico</option>
-       <option value="mediano">Mediano</option>
-       <option value="grande">Grande</option>
-       <option value="extra_grande">Extra Grande</option>
+       <option value="Pequeño">Pequeño</option>
+       <option value="Mediano">Mediano</option>
+       <option value="Grande">Grande</option>      
        </select>
 
 
         <label for="peso">Peso:</label>
-        <input type="number" step="0.01" id="peso" name="peso" required>
-
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" required>
+        <input type="number" step="0.01" id="peso" name="peso" >
 
         <label for="fecha">Fecha:</label>
         <input type="date" id="fecha" name="fecha" required readonly>
+
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora" required readonly>
 
 
 
@@ -116,22 +149,15 @@
 
     <script>
 
-    var departamentos = ["Artigas", "Canelones", "Cerro Largo", "Colonia", "Durazno", "Flores", "Florida", "Lavalleja", "Maldonado", "Montevideo", "Paysandú", "Río Negro", "Rivera", "Rocha", "Salto", "San José", "Soriano", "Tacuarembó", "Treinta y Tres"];
-    var selectDepartamento = document.getElementById("departamento");
-
-
-    for (var i = 0; i < departamentos.length; i++) {
-        var option = document.createElement("option");
-        option.value = departamentos[i];
-        option.text = departamentos[i];
-        selectDepartamento.appendChild(option);
-    }
-
 const fechaActual = new Date();
-const anio = fechaActual.getFullYear();
-const mes = (fechaActual.getMonth() + 1).toString().padStart(2, '0');
-const dia = fechaActual.getDate().toString().padStart(2, '0');
-document.getElementById('fecha').value = `${anio}-${mes}-${dia}`;
+  
+  
+  const fechaISO = fechaActual.toISOString().slice(0, 10); 
+  const horaISO = fechaActual.toISOString().slice(11, 16); 
+  
+  
+  document.getElementById("fecha").value = fechaISO;
+  document.getElementById("hora").value = horaISO;
 
 
 </script>

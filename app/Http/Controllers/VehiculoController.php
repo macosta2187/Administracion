@@ -15,9 +15,8 @@ class VehiculoController extends Controller
         $vehiculo->matricula = $request->input('matricula');
         $vehiculo->marca = $request->input('marca');
         $vehiculo->modelo = $request->input('modelo');
-        $vehiculo->tipo = $request->input('tipo');
-        $vehiculo->capacidad_peso = $request->input('capacidad_peso');
-        $vehiculo->ruta = $request->input('ruta');        
+        $vehiculo->peso = $request->input('peso');       
+        $vehiculo->capacidad = $request->input('capacidad');             
         $vehiculo->id_chofer = $request->input('id_chofer');
         $vehiculo->save();
     }
@@ -50,9 +49,8 @@ class VehiculoController extends Controller
         $vehiculo->matricula = $request->input('matricula');
         $vehiculo->marca = $request->input('marca');
         $vehiculo->modelo = $request->input('modelo');
-        $vehiculo->tipo = $request->input('tipo');
-        $vehiculo->capacidad_peso = $request->input('capacidad_peso');
-        $vehiculo->ruta = $request->input('ruta');        
+        $vehiculo->peso = $request->input('peso');       
+        $vehiculo->capacidad = $request->input('capacidad');             
         $vehiculo->id_chofer = $request->input('id_chofer');
         $vehiculo->save();
 

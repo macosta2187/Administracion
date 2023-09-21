@@ -69,14 +69,14 @@ button[type="submit"]:hover {
         <label for="numero">Número:</label>
         <input type="text" name="numero" value="{{ $almacen->numero }}" required>
 
-        <label for="ciudad">Ciudad:</label>
-        <input type="text" name="ciudad" value="{{ $almacen->ciudad }}" required>
+        <label for="localidad">Localidad:</label>
+        <input type="text" name="localidad" value="{{ $almacen->localidad }}" required>
 
-        <label for="latitud">Latitud:</label>
-        <input type="text" name="latitud" value="{{ $almacen->latitud }}" required>
+        <label for="departamento">Departamento:</label>
+        <input type="text" name="departamento" value="{{ $almacen->departamento }}" required>
 
-        <label for="longitud">Longitud:</label>
-        <input type="text" name="longitud" value="{{ $almacen->longitud }}" required>
+        <label for="telefono">Telefono:</label>
+        <input type="numeric" name="telefono" value="{{ $almacen->telefono }}" required>
     
 
         <button type="submit">Guardar cambios</button>

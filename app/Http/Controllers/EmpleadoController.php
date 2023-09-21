@@ -17,8 +17,7 @@ class EmpleadoController extends Controller
         $empleado->apellido = $request->input('apellido');
         $empleado->celular = $request->input('celular');
         $empleado->email = $request->input('email');
-        $empleado->fechanac = $request->input('fechanac');
-        $empleado->rol = $request->input('rol');
+        $empleado->fechanac = $request->input('fechanac');      
         $empleado->save();
     }
 
@@ -52,9 +51,8 @@ class EmpleadoController extends Controller
         $empleado->apellido = $request->input('apellido');
         $empleado->celular = $request->input('celular');
         $empleado->email = $request->input('email');
-        $empleado->fechanac = $request->input('fechanac');
-        $empleado->rol = $request->input('rol');
-        $almacen->save();
+        $empleado->fechanac = $request->input('fechanac');  
+        $empleado->save();
 
         return redirect("/");
     }

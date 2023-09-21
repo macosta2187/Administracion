@@ -23,9 +23,9 @@ class AlmacenController extends Controller
         $almacen->nombre = $request->input('nombre');
         $almacen->calle = $request->input('calle');
         $almacen->numero = $request->input('numero');
-        $almacen->ciudad = $request->input('ciudad');
-        $almacen->latitud = $request->input('latitud');
-        $almacen->longitud = $request->input('longitud');
+        $almacen->localidad = $request->input('localidad');
+        $almacen->departamento = $request->input('departamento');        
+        $almacen->telefono = $request->input('telefono'); 
         $almacen->save();
 }
 
@@ -54,14 +54,15 @@ class AlmacenController extends Controller
 public function Actualizar(Request $request, Almacen $almacen)
 
 {
+   
     $almacen = new Almacen;
     $almacen->nombre = $request->input('nombre');
     $almacen->calle = $request->input('calle');
     $almacen->numero = $request->input('numero');
-    $almacen->ciudad = $request->input('ciudad');
-    $almacen->latitud = $request->input('latitud');
-    $almacen->longitud = $request->input('longitud');
-    $almacen->save();
+    $almacen->localidad = $request->input('localidad');
+    $almacen->departamento = $request->input('departamento');        
+    $almacen->telefono = $request->input('telefono');   
+    $almacen->save();    
 
     return redirect("/");
 }
