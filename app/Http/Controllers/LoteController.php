@@ -84,33 +84,48 @@ public function ListarLote()
         public function ingresarLote(Request $request)
         {
             $request->validate([
-                'lote' => 'required|integer|min:1', // Validación básica para el número de lote
+                'lote' => 'required|integer|min:1', 
             ]);
     
-            // Crear un nuevo lote en la base de datos
+           
             $lote = new Lote();
             $lote->numero = $request->input('lote');
             $lote->save();
     
-            // Redirigir a la página de lista de paquetes o donde sea necesario
-            return redirect()->route('paquetes/Listar'); // Reemplaza 'listaPaquetes' con el nombre real de tu ruta
+            return redirect()->route('paquetes/Listar'); 
         }
-        public function asignarLote(Request $request)
+
+
+       
+        public function crearLotes(Request $request)
         {
-            $request->validate([
-                'camionId' => 'required|integer', // Asegúrate de validar el camión seleccionado
-                'seleccionarPaquete' => 'required|array', // Asegúrate de validar los paquetes seleccionados
-            ]);
+            
+            $request = $request->json()->all();
     
-            $camionId = $request->input('camionId');
-            $paquetesSeleccionados = $request->input('seleccionarPaquete');
+            if (!is_array($request) || empty($request)) {
+                return response()->json(['message' => 'Error en el formato de datos'], 400);
+            }     
     
-            // Aquí debes implementar la lógica para asignar los paquetes al camión y guardar estos cambios en la base de datos
+            $paquetesAConsolidar = $request['Paquetes'];
     
-            // Redirigir a la página de lista de paquetes o donde sea necesario
-            return redirect()->route('paquetes/Listar'); // Reemplaza 'listaPaquetes' con el nombre real de tu ruta
-        }
+            foreach ($paquetesAConsolidar as $paquete) {
+            $lote = new Lote();
+            $lote->lote = $paquete['lote'];
+            $lote->estatus = $paquete['estatus'];
+            $lote->paqueteId = $paquete['paqueteId'];
+            $lote->camionId = $paquete['camionId'];        
+            $lote->save();
+            Paquete::where('id', $paquete['paqueteId'])->delete();
+            }        
+    
+            return response()->json(['message' => 'Lotes guardados exitosamente'], 200);
+        
+        
     }
+
+}
+
+    
     
    
     

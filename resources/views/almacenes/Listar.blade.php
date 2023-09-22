@@ -79,6 +79,7 @@
       
 </head>
 <body>
+@csrf
     <div class="container">
         <h1>Lista de Almacenes</h1>
         <table>
@@ -93,6 +94,7 @@
                 <th>Eliminar</th>
             </tr>
             @forelse($almacenes as $almacen)
+          
                 <tr>
                     <td data-label="Nombre">{{ $almacen->nombre }}</td>
                     <td data-label="Calle">{{ $almacen->calle }}</td>
@@ -116,6 +118,7 @@
             @endforelse
         </table>
     </div>
+
 
 </body>
 </html>

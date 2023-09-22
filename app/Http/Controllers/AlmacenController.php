@@ -34,7 +34,6 @@ class AlmacenController extends Controller
     {
        
        $almacenes = Almacen::all();
-
         return view('almacenes.Listar', ['almacenes' => $almacenes]);
     }
 

@@ -6,7 +6,9 @@
 body {
   font-family: "Lato", sans-serif;
   background-image: url("fondo.jpg");
-  background-size: 100% 100%;
+  background-size: cover; 
+  margin: 0; 
+  overflow: hidden; 
 }
 
 .sidenav {
@@ -16,7 +18,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #FFFF;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -25,42 +27,40 @@ body {
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
-  color: #818181;
+  font-size: 20px;
+  color: #E8E1E1;
   display: block;
   transition: 0.3s;
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: #F85C3D;
 }
 
 .footer {
-	
   padding: 20px;
   text-align: center;
   background: #333; 
   color: white; 
-  
 }
 
 .sidenav .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
-  font-size: 36px;
+  font-size: 25px;
   margin-left: 50px;
 }
 
 #main {
-    transition: margin-left .5s;
-    padding: 16px;
-    margin-bottom: 60px; /* Igual al alto del footer */
+  transition: margin-left .5s;
+  padding: 16px;
+  margin-bottom: 60px; 
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {padding-top: 12px;}
+  .sidenav a {font-size: 12px;}
 }
 </style>
 </head>
@@ -76,13 +76,13 @@ body {
   <a href="/paquetes/Listar">Listar Paquetes</a>
   <a href="/vehiculos/Ingresar">Ingreso de Vehiculos</a>
   <a href="/vehiculos/Listar">Listar Vehiculos</a>
-
+  <a href="/registro">Registro de usuarios</a>
 </div>
 
 <div id="main">
-  <h2>Bienvenido </h2>
+  <h2>Bienvenido</h2>
   <p>Sistema de control y monitoreo de paquetes</p>
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+  <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
 </div>
 
 <script>
@@ -96,10 +96,10 @@ function closeNav() {
   document.getElementById("main").style.marginLeft= "0";
 }
 </script>
-   
+
+
+
 
 
 </body>
-
-
-</html> 
+</html>

@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Lote extends Model
 {
-    use HasFactory;
-    protected $table = 'conformans';
+    protected $table = 'lotes';    
+    protected $fillable = ['paqueteId', 'lote', 'estatus','camionId'];
     use SoftDeletes;
     use HasFactory;
 

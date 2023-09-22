@@ -9,13 +9,24 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehiculoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
+use App\Http\Middleware\Autenticacion;
+use Illuminate\Http\Request;
+use App\Http\Middleware;
+use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
+
+Route::get('/', function () {  
+    return view('/login');
+})->name('login');
+
+
+Route::get('/inicio', function () {
     return view('inicio');
 })->name('inicio');
 
-Route::get('/almacenes/Listar', [AlmacenController::class, "Listar"]);
-Route::post('/almacenes/Ingresar"', [AlmacenController::class, "Insertar"])->name('almacenes.Insertar');
+
+Route::get('/almacenes/Listar', [AlmacenController::class, "Listar"])->name('almacenes.Listar');
+Route::post('/almacenes/Ingresar"', [AlmacenController::class, "Insertar"])->name('almacenes.Insertar')->middleware(Autenticacion::class);
 Route::get('/almacenes/{almacen}/editar', [AlmacenController::class, "Editar"])->name('almacenes.Editar');
 Route::put('/almacenes/{almacen}', [AlmacenController::class, "Actualizar"])->name('almacenes.Actualizar');
 Route::delete('/almacenes/{almacen}', [AlmacenController::class, "Eliminar"])->name('almacenes.eliminar');
@@ -120,16 +131,14 @@ Route::get("/IngresarLote", function () {
     return view('IngresarLote');
 });
 
-Route::get('/Registro', function () {
-    return view('Registro');
+Route::get('/registro', function () {
+    return view('registro');
 });
 
 Route::get('/error', function () {
     return view('error');
 });
 
-Route::post("/registrar", [UserController::class, "Registro"]);
 
-Route::get('/inicio', function () {
-    return view('inicio');
-});
+Route::post("/registrar", [UserController::class, "Registro"])->name('registrar');
+Route::post('/asignarLote', [LoteController::class, 'asignarLote'])->name('asignarLote');

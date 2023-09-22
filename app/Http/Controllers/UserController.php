@@ -13,6 +13,7 @@ use App\Http\Middleware\AuthController;
 
 
 
+
 class UserController extends Controller
 {
       
@@ -37,19 +38,17 @@ class UserController extends Controller
     }
 
 
-public function Login(Request $request)
+    public function Login(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-
+        $credentials = $request->only('email', 'password');
+    
         if (Auth::attempt($credentials)) {
-           $accessToken = auth()->user()->createToken('Laravel')->accessToken;
-           return redirect('/inicio'); 
-        }      
-             
-        return redirect('/error');
+            // La autenticación ha tenido éxito
+            return redirect('/inicio');
+        }
+    
+        // La autenticación ha fallado
+        return back()->withErrors(['email' => 'Credenciales incorrectas']);
     }
 
 
